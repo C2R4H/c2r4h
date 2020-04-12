@@ -1,7 +1,3 @@
-//Compile
-//Type
-//Reset
-//Menu
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -45,7 +41,8 @@ int menu(){
   cout<<endl;
   cout<<"     1--->Compile"<<endl;
   cout<<"     2--->Type"<<endl;
-  cout<<"     3--->Reset"<<endl<<endl;
+  cout<<"     3--->Reset"<<endl;
+  cout<<"     4--->Remove"<<endl<<endl;
   cout<<"   Insert :";cin>>n;return n;
 }
 void comp(){
@@ -69,7 +66,19 @@ void comp(){
   const char* ex = exec.c_str();
   system(ex);in.close();
 }
-
+void remove(){
+  system("clear");
+  cout<<endl;
+  system("ls");
+  cout<<"     ";
+  string nume;
+  cout<<endl;
+  cout<<"   Introduceti : ";cin>>nume;
+  string out = "rm ";
+  out.append(nume);
+  const char* ex = out.c_str();
+  system(ex);
+}
 void type(){
   system("clear");
   ifstream in;
@@ -90,5 +99,6 @@ int main(){
     if(nr == 1){comp();back();}
     if(nr == 2){type();}
     if(nr == 3){system("rm data.txt");}
+    if(nr == 4){remove();}
   }
 }
